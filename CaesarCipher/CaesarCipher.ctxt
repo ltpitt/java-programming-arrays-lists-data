@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=CaesarCipher
+comment0.text=\r\n\ A\ Java\ implementation\ of\ the\ classic\ Caesar\ Cipher.\r\n\ \r\n\ @author\ Davide\ Nastri\r\n\ @version\ 2/7/2018\r\n
+comment1.params=input\ key
+comment1.target=java.lang.String\ encrypt(java.lang.String,\ int)
+comment2.params=
+comment2.target=void\ testEncrypt()
+numComments=3
