@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=WordPlay
+comment0.text=\r\n\ Methods\ to\ check\ and\ modify\ words.\r\n\ \r\n\ @author\ Davide\ Nastri\ \r\n\ @version\ 2/8/2018\r\n
+comment1.params=ch
+comment1.target=boolean\ isVowel(char)
+comment2.params=
+comment2.target=void\ testIsVowel()
+numComments=3
