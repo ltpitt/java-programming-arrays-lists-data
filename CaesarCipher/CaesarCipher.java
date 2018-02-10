@@ -28,6 +28,7 @@ public class CaesarCipher {
     }
     public void testEncrypt() {
         System.out.println(encrypt("Hello there", 3));
+        System.out.println(encrypt("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!", 15));
     }
     public void testCaesar() {
         int key = 17;
@@ -36,10 +37,55 @@ public class CaesarCipher {
         String encrypted = encrypt(message, key);
         System.out.println("key is " + key + "\n" + encrypted);    
     }
-    public String encryptTwoKeys(String input, int key, int key2) {
-        return "";
+    public String encryptTwoKeys(String input, int key1, int key2) {
+        StringBuilder encrypted = new StringBuilder(input);
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String shiftedAlphabetKey1 = alphabet.substring(key1) + alphabet.substring(0,key1);
+        String shiftedAlphabetKey2 = alphabet.substring(key2) + alphabet.substring(0,key2);
+        for (int i = 0; i < encrypted.length(); i++) {
+            char currChar = encrypted.charAt(i);
+            boolean isCurrCharUppercase = Character.isUpperCase(currChar);
+            currChar = Character.toUpperCase(currChar);
+            int idx = alphabet.indexOf(currChar);
+            char newChar;
+            if (idx != -1) {
+                if (i % 2 == 0) {
+                    newChar = shiftedAlphabetKey1.charAt(idx);                    
+                } else {
+                    newChar = shiftedAlphabetKey2.charAt(idx);                    
+                }
+                if (!isCurrCharUppercase) {
+                    newChar = Character.toLowerCase(newChar);
+                }
+                encrypted.setCharAt(i, newChar);
+            }
+        }
+        return encrypted.toString();
     }
     public void testEncryptTwoKeys() {
+        int key1 = 8;
+        int key2 = 21;        
+        FileResource fr = new FileResource();
+        String message = fr.asString();
+        String encrypted = encryptTwoKeys(message, key1, key2);
+        System.out.println("Correct result is: Czojq Ivdzle");
+        System.out.println(encrypted); 
+        
     }
+    public void textFingerPrint(String s) {
+        String alpha = "abcdefghijklmnopqrstuvwxyz";
+        int[] counters = new int[26];
+        for (int k=0; k < s.length(); k++) {
+            char ch = s.charAt(k);
+            int index = alpha.indexOf(Character.toLowerCase(ch));
+            if (index != -1) {
+                counters[index] += 1;
+            }
+        }
+        for (int k=0; k < counters.length; k++) {
+            System.out.println(alpha.charAt(k)+"\t"+counters[k]);
+        }
+    }
+    
 }
 
