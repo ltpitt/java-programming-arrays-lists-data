@@ -42,6 +42,8 @@ public class CaesarCipher {
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String shiftedAlphabetKey1 = alphabet.substring(key1) + alphabet.substring(0,key1);
         String shiftedAlphabetKey2 = alphabet.substring(key2) + alphabet.substring(0,key2);
+        //System.out.println(shiftedAlphabetKey1);
+        //System.out.println(shiftedAlphabetKey2);        
         for (int i = 0; i < encrypted.length(); i++) {
             char currChar = encrypted.charAt(i);
             boolean isCurrCharUppercase = Character.isUpperCase(currChar);
@@ -63,13 +65,14 @@ public class CaesarCipher {
         return encrypted.toString();
     }
     public void testEncryptTwoKeys() {
-        int key1 = 8;
-        int key2 = 21;        
+        int key1 = 2;
+        int key2 = 20;        
         FileResource fr = new FileResource();
         String message = fr.asString();
-        String encrypted = encryptTwoKeys(message, key1, key2);
-        System.out.println("Correct result is: Czojq Ivdzle");
-        System.out.println(encrypted); 
+        message = "Top ncmy qkff vi vguv vbg ycpx";
+        String encrypted = encryptTwoKeys(message, 26-key1, 26-key2);
+        //System.out.println("Correct result is: Czojq Ivdzle");
+        System.out.println(encrypted);
         
     }
     public void textFingerPrint(String s) {
@@ -86,6 +89,6 @@ public class CaesarCipher {
             System.out.println(alpha.charAt(k)+"\t"+counters[k]);
         }
     }
-    
+
 }
 
