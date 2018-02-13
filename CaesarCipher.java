@@ -27,8 +27,9 @@ public class CaesarCipher {
         return encrypted.toString();
     }
     public void testEncrypt() {
-        System.out.println(encrypt("Hello there", 3));
-        System.out.println(encrypt("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!", 15));
+        System.out.println(encrypt("Hello there", 15));
+        //System.out.println(encrypt("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!", 15));
+        System.out.println(encrypt("Can you imagine life WITHOUT the internet AND computers in your pocket?", 15));
     }
     public void testCaesar() {
         int key = 17;
@@ -65,12 +66,14 @@ public class CaesarCipher {
         return encrypted.toString();
     }
     public void testEncryptTwoKeys() {
-        int key1 = 2;
-        int key2 = 20;        
+        int key1 = 21;
+        int key2 = 8;        
         FileResource fr = new FileResource();
         String message = fr.asString();
-        message = "Top ncmy qkff vi vguv vbg ycpx";
-        String encrypted = encryptTwoKeys(message, 26-key1, 26-key2);
+        message = "Can you imagine life WITHOUT the internet AND computers in your pocket?";
+        // 6. message = "Hfs cpwewloj loks cd Hoto kyg Cyy.";
+        // decrypt String encrypted = encryptTwoKeys(message, 26-key1, 26-key2);
+        String encrypted = encryptTwoKeys(message, key1, key2);
         //System.out.println("Correct result is: Czojq Ivdzle");
         System.out.println(encrypted);
         

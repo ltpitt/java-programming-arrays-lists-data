@@ -12,6 +12,7 @@ public class WordLengths {
     }
     public void testIsLetter() {
         System.out.println("F is letter: " + isLetter('F'));
+        System.out.println("1 is letter: " + isLetter('1'));
         System.out.println("- is letter: " + isLetter('-'));
     }
     public int indexOfMax(int [] values) {
@@ -32,6 +33,9 @@ public class WordLengths {
         int countsLen = counts.length;
         for (String word : resource.words() ) {
             counts[countWordLength(word)] ++;
+            if (countWordLength(word) == 0) {
+                System.out.println("Word with 0 length: " + word);
+            }
         }
         int idx = 0;
         for (int wordOccurrencyNumber : counts) {
@@ -41,24 +45,26 @@ public class WordLengths {
     }
     public int countWordLength(String word) {
         int len = 0;
-        char [] charArray = word.toCharArray();
-        int charArrayLen = charArray.length - 1;
-        for (char ch : charArray) {
+        char[] charArray = word.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            char ch = charArray[i];
             if (Character.isLetter(ch)) {
                 len++;
             } else {
-                if (len != 0 && len != charArrayLen) {
+                if (word.indexOf(ch) != 0 && word.indexOf(ch) != charArray.length - 1) {
                     len++;
                 }
-            }
+            }            
         }
         return len;
-    }
+    }       
     public void testCountWordLength() {
-        System.out.println("Word: Davide is long: " + countWordLength("Davide"));
+        System.out.println("Word: disdnguish'd is long: " + countWordLength("disdnguish'd"));
+        System.out.println("Word: born, is long: " + countWordLength("born,"));        
         System.out.println("Word: -Minus is long: " + countWordLength("-Minus"));        
         System.out.println("Word: Mi-nus is long: " + countWordLength("Mi-nus"));        
         System.out.println("Word: Minus- is long: " + countWordLength("Minus-"));                
+        System.out.println("Word: -Minus- is long: " + countWordLength("-Minus-"));                        
     }
     public void testCountWordLengths() {
         int[] counts = new int[31];

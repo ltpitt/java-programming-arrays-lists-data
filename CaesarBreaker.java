@@ -71,7 +71,7 @@ public class CaesarBreaker {
     public void testDecryptTwoKeys() {
         FileResource fr = new FileResource();
         String encryptedMessage = fr.asString();
-        //encryptedMessage = "Akag tjw Xibhr awoa aoee xakex znxag xwko";
+        //encryptedMessage = "Aal uttx hm aal Qtct Fhljha pl Wbdl. Pvxvxlx!";
         System.out.println(decryptTwoKeys(encryptedMessage));
         
     }
@@ -95,4 +95,7 @@ public class CaesarBreaker {
     public void testGetKey() {
         System.out.println(getKey("Daaaaavide"));
     }
+    
+    
+    
 }
