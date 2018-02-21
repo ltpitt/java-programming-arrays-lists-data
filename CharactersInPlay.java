@@ -31,7 +31,7 @@ public class CharactersInPlay {
    public void tester() {
         findAllCharacters();
         System.out.println("# characters: " + characterNames.size());
-        charactersWithNumParts(9,500);
+        charactersWithNumParts(10,15);
    }
    public void findAllCharacters() {
         characterNames.clear();
