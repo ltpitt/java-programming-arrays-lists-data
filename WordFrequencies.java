@@ -4,7 +4,7 @@
  * @author Davide Nastri
  * @version 2/15/2018
  */
-import java.util.ArrayList;
+import java.util.*;
 import edu.duke.*;
 
 public class WordFrequencies {
@@ -15,7 +15,19 @@ public class WordFrequencies {
         myWords = new ArrayList<String>();
         myFreqs = new ArrayList<Integer>();
     }
-    
+    public void countWordsMap() {
+        FileResource resource = new FileResource();
+        HashMap<String,Integer> map = new HashMap<String,Integer>();
+        
+        for( String w : resource.words() ) {
+            w= w.toLowerCase();
+            if (!map.containsKey(w)){
+                map.put(w,1);
+            } else {
+                map.put(w,map.get(w)+1);
+            }
+        }
+    }
     public void findUnique() {
         myWords.clear();
         myFreqs.clear();
