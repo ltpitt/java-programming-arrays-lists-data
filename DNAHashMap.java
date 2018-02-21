@@ -53,21 +53,29 @@ public class DNAHashMap {
             String dna = fr.asString().trim();
             //dna = "CGTTCAAGTTCAA";
             dna = dna.toUpperCase();
-            
-            System.out.println("1st test");
-            buildCodonMap(0, dna);
-            int total = 0;
+            int frame = 1;            
+            System.out.println("1st test using frame " + frame);
+            buildCodonMap(frame, dna);
+            int totalCodons = 0;
+            int uniqueCodons = 0;
             int start = 1;
             int end = 5;
-            for(String w : map.keySet()){
-                int value = map.get(w);
-                System.out.println(value+"\t"+w);
-     		total += value;
+            for(String codon : map.keySet()){
+                int occurrencies = map.get(codon);
+                System.out.println(occurrencies + "\t" + codon);
+                if (occurrencies == 1) {
+                    uniqueCodons++;
+                }
+                totalCodons += occurrencies;
             }
-            System.out.println("Most common codon is " + getMostCommonCodon());
-            System.out.println("Codon count between " + start + " and " + end);
-            printCodonCounts(start, end);
+            System.out.println("Total codons: " + totalCodons);
+            System.out.println("Total unique codons: " + uniqueCodons);
             
+            //System.out.println("Most common codon is " + getMostCommonCodon());
+            //System.out.println("Codon count between " + start + " and " + end);
+            //printCodonCounts(start, end);
+            
+            /*
             System.out.println("2nd test");            
             buildCodonMap(1, dna);
             total = 0;
@@ -76,7 +84,7 @@ public class DNAHashMap {
             for(String w : map.keySet()){
                 int value = map.get(w);
                 System.out.println(value+"\t"+w);
-     		total += value;
+            total += value;
             }
             System.out.println("Most common codon is " + getMostCommonCodon());
             System.out.println("Codon count between " + start + " and " + end);
@@ -90,10 +98,11 @@ public class DNAHashMap {
             for(String w : map.keySet()){
                 int value = map.get(w);
                 System.out.println(value+"\t"+w);
-   		total += value;
+        total += value;
             }
             System.out.println("Most common codon is " + getMostCommonCodon());
             System.out.println("Codon count between " + start + " and " + end);
             printCodonCounts(start, end);            
+            */
         }
     }
