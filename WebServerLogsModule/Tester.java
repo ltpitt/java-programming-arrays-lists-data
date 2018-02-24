@@ -46,8 +46,14 @@ public class Tester
  	 System.out.println("iPsMostVisits:");
     	 System.out.println(la.iPsMostVisits(counts));  
  	 System.out.println("iPsForDays:");
-    	 System.out.println(la.iPsForDays());  
-    	 
+    	 System.out.println(la.iPsForDays()); 
+ 	 System.out.println("dayWithMostIPVisits:");
+    	 System.out.println(la.dayWithMostIPVisits(la.iPsForDays())); 
+ 	 System.out.println("iPsWithMostVisitsOnDay:");
+         ArrayList<String> result = la.iPsWithMostVisitsOnDay(la.iPsForDays(), "Sep 30");
+         for (int k = 0; k < result.size(); k++) {
+             System.out.println(result.get(k));
+         }
     }
 
 }

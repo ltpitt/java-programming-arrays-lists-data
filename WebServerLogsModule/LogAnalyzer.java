@@ -129,4 +129,36 @@ public class LogAnalyzer
         }    
         return ipForDays;
     }
+    public String dayWithMostIPVisits(HashMap<String, ArrayList<String>> ipForDays) {
+        String dayWithMostVisits = "";
+        int maxVisits = 0;
+        int currentDayVisits;
+        for (String day : ipForDays.keySet()) {
+            currentDayVisits = ipForDays.get(day).size();
+            if (maxVisits < currentDayVisits) {
+                maxVisits = currentDayVisits;
+                dayWithMostVisits = day;
+            }
+        }
+        return dayWithMostVisits;
+    }
+    public ArrayList<String> iPsWithMostVisitsOnDay(HashMap<String, ArrayList<String>> ipsPerDays, String day) {
+        ArrayList<String> ip = new ArrayList<String>();
+        HashMap<String, Integer> ips = new HashMap<String, Integer>();
+        ArrayList<String> ipsWithMostsVisitsOnDay = new ArrayList<String>();
+        for (String time: ipsPerDays.keySet()) {
+            if (time.equals(day)) {
+                ip = ipsPerDays.get(time);
+            }
+        }
+        for (int k = 0; k < ip.size(); k++) {
+            if (!ips.containsKey(ip.get(k))) {
+                ips.put(ip.get(k), 1);
+            } else {
+                ips.put(ip.get(k), ips.get(ip.get(k))+1);
+            }
+        }
+        ipsWithMostsVisitsOnDay = iPsMostVisits(ips);
+        return ipsWithMostsVisitsOnDay;
+    }
 }
