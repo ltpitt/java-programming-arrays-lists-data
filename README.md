@@ -21,7 +21,7 @@ Davide Nastri – [@pitto](https://twitter.com/pitto) – d.nastri@gmail.com
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
-[https://github.com/ltpitt/java-programming-arrays-lists-data](https://github.com/ltpitt/)
+[Java Programming - Arrays / Lists / Data](https://github.com/ltpitt/java-programming-arrays-lists-data)
 
 ## Contributing
 
